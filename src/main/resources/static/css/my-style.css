@@ -1,0 +1,54 @@
+/*!
+ * Start Bootstrap - Small Business HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+body {
+    padding-top: 40px;  /*Required padding for .navbar-fixed-top. Change if height of navigation changes.*/
+}
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.navbar-fixed-top {
+    padding-top: 1px;
+}
+
+.navbar-fixed-top .navbar-brand {
+    padding: 3px 5px;
+}
+
+footer .well {
+    background-color: dimgrey;
+    padding-top: 7px;
+    padding-bottom: 0px;
+}
+
+footer .well p {
+    color: floralwhite;
+}
+
+.well {
+    padding-top: 2px;
+    padding-bottom: 25px;
+}
+/*
+.navbar-fixed-top .nav {
+    padding: 0px 0;
+}
+
+footer {
+    padding: 30px 0;
+}
+
+@media(min-width:768px) {
+    body {
+        padding-top: 50px; */
+/* Required padding for .navbar-fixed-top. Change if height of navigation changes. *//*
+
+    }
+
+    .navbar-fixed-top .navbar-brand {
+        padding: 0px 0;
+    }
+}*/

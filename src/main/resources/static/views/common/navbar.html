@@ -1,0 +1,33 @@
+<div ng-cloak>
+    <!-- Navbar -->
+    <nav class="navbar navbar-fixed-top navbar-inverse" id="bootangularui-navigator">
+
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a ui-sref="home" class="navbar-brand">
+                    <img class="img-responsive" src="images/backbench_logo.png" width="180" height="90" alt="backbench-logo">
+                </a>
+            </div> <!-- End navbar header -->
+
+            <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
+                <div class="btn-group navbar-btn navbar-right">
+                    <a href="" class="btn btn-success">Register</a>
+                    <a href="" class="btn btn-warning">Login</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a ui-sref="view1" ng-click="navCollapsed = !navCollapsed">Employee Management</a></li>
+                    <li><a ui-sref="view2" ng-click="navCollapsed = !navCollapsed">View Employees</a></li>
+                </ul>
+            </div>
+
+
+        </div> <!-- End container -->
+    </nav> <!-- End navbar -->
+</div>

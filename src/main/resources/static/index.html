@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="mobileRepairApp">
+<head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/my-style.css">
+    <title>{{ 'jyotimobile.title' | translate }}</title>
+</head>
+<body>
+<div ui-view="navbar">
+</div>
+
+<div class="container">
+    <div class="col-md-12">
+        <div ncy-breadcrumb></div>
+        <div ui-view="content">
+        </div>
+    </div>
+    <div ui-view="footer"></div>
+</div>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-resource/angular-resource.min.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="bower_components/moment/moment.js"></script>
+<script src="bower_components/angular-moment/angular-moment.min.js"></script>
+<script src="bower_components/angular-breadcrumb/dist/angular-breadcrumb.min.js"></script>
+<script src="bower_components/lodash/lodash.min.js"></script>
+<script src="bower_components/angular-translate/angular-translate.min.js"></script>
+<script src="bower_components/angular-translate-loader-url/angular-translate-loader-url.min.js"></script>
+<script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+
+<script src="js/app.js"></script>
+<script src="js/routers/application.router.js"></script>
+<script src="js/error/error.js"></script>
+</body>
+</html>
