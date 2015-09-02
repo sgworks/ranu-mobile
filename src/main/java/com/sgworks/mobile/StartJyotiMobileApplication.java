@@ -11,16 +11,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.env.Environment;
 import org.springframework.core.env.SimpleCommandLinePropertySource;
 
 import static java.util.Collections.singletonMap;
 
 @SpringBootApplication
-public class StrartJyotiMobileApplication {
+public class StartJyotiMobileApplication {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(StrartJyotiMobileApplication.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(StartJyotiMobileApplication.class);
 
     @Autowired
     private Environment env;
@@ -36,7 +35,7 @@ public class StrartJyotiMobileApplication {
 
     public static void main(String[] args)  throws UnknownHostException {
         //SpringApplication.run(StrartJyotiMobileApplication.class, args);
-        SpringApplication app = new SpringApplication(StrartJyotiMobileApplication.class);
+        SpringApplication app = new SpringApplication(StartJyotiMobileApplication.class);
         app.setShowBanner(false);
         app.setDefaultProperties(singletonMap("spring.config.name", "application"));
 
