@@ -46,6 +46,17 @@ public class Job implements Serializable {
     @JoinColumn(name = "CUSTOMER_ID_FK")
     private Customer customer;
 
+    @Column(name = "JOB_STATUS")
+    private String jobStatus;
+
+    public String getJobStatus() {
+        return jobStatus;
+    }
+
+    public void setJobStatus(String jobStatus) {
+        this.jobStatus = jobStatus;
+    }
+
     public Customer getCustomer() {
         return customer;
     }
