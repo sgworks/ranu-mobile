@@ -1,19 +1,7 @@
 package com.sgworks.mobile.model;
 
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -23,11 +11,8 @@ public class Payment implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="PAYMENT_ID", nullable = false)
+    @Column(name = "PAYMENT_ID", nullable = false)
     private int paymentId;
-
-    @Column(name = "TOTAL_PAYMENT_AMOUNT")
-    private double totalPaymentAmount;
 
     @Column(name = "AMOUNT_PAID")
     private double amountPaid;
@@ -36,25 +21,9 @@ public class Payment implements Serializable {
     @Column(name = "PAYMENT_DATE")
     private Date paymentDate;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "PAYMENT_DUE_DATE")
-    private Date paymentDueDate;
-
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "CUSTOMER_ID_FK")
-    private Customer customer;
-
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "JOB_ID_FK")
     private Job job;
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
 
     public Job getJob() {
         return job;
@@ -70,14 +39,6 @@ public class Payment implements Serializable {
 
     public void setPaymentId(int paymentId) {
         this.paymentId = paymentId;
-    }
-
-    public double getTotalPaymentAmount() {
-        return totalPaymentAmount;
-    }
-
-    public void setTotalPaymentAmount(double totalPaymentAmount) {
-        this.totalPaymentAmount = totalPaymentAmount;
     }
 
     public double getAmountPaid() {
@@ -96,11 +57,9 @@ public class Payment implements Serializable {
         this.paymentDate = paymentDate;
     }
 
-    public Date getPaymentDueDate() {
-        return paymentDueDate;
-    }
-
-    public void setPaymentDueDate(Date paymentDueDate) {
-        this.paymentDueDate = paymentDueDate;
+    @Override
+    public String toString() {
+        return ("PAYMENT_ID = " + this.getPaymentId() + " : AMOUNT_PAID = " + this.getAmountPaid() +
+                " : PAYMENT_DATE = " + this.getPaymentDate());
     }
 }

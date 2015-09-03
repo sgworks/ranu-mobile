@@ -1,20 +1,10 @@
 package com.sgworks.mobile.model;
 
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "JOB")
@@ -22,7 +12,7 @@ public class Job implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="JOB_ID", nullable = false)
+    @Column(name = "JOB_ID", nullable = false)
     private int jobId;
 
     @Column(name = "JOB_TYPE")
@@ -42,12 +32,36 @@ public class Job implements Serializable {
     @Column(name = "ENGINEER_NAME")
     private String engineerName;
 
+    @Column(name = "JOB_ACTION_TAKEN")
+    private String jobActionTaken;
+
+    @Column(name = "JOB_ACTION_REASON")
+    private String jobActionReason;
+
+    @Column(name = "TOTAL_PAYMENT_AMOUNT")
+    private double totalPaymentAmount;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "PAYMENT_DUE_DATE")
+    private Date paymentDueDate;
+
+    @Column(name = "JOB_STATUS")
+    private String jobStatus;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "job")
+    private Set<Payment> payments;
+
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "CUSTOMER_ID_FK")
     private Customer customer;
 
-    @Column(name = "JOB_STATUS")
-    private String jobStatus;
+    public Set<Payment> getPayments() {
+        return payments;
+    }
+
+    public void setPayments(Set<Payment> payments) {
+        this.payments = payments;
+    }
 
     public String getJobStatus() {
         return jobStatus;
@@ -111,5 +125,46 @@ public class Job implements Serializable {
 
     public void setEngineerName(String engineerName) {
         this.engineerName = engineerName;
+    }
+
+    public String getJobActionTaken() {
+
+        return jobActionTaken;
+    }
+
+    public void setJobActionTaken(String jobActionTaken) {
+        this.jobActionTaken = jobActionTaken;
+    }
+
+    public String getJobActionReason() {
+        return jobActionReason;
+    }
+
+    public void setJobActionReason(String jobActionReason) {
+        this.jobActionReason = jobActionReason;
+    }
+
+    public double getTotalPaymentAmount() {
+        return totalPaymentAmount;
+    }
+
+    public void setTotalPaymentAmount(double totalPaymentAmount) {
+        this.totalPaymentAmount = totalPaymentAmount;
+    }
+
+    public Date getPaymentDueDate() {
+        return paymentDueDate;
+    }
+
+    public void setPaymentDueDate(Date paymentDueDate) {
+        this.paymentDueDate = paymentDueDate;
+    }
+
+    @Override
+    public String toString() {
+        return ("JOB_ID = " + this.getJobId() + " : JOB_TYPE = " + this.getJobType() + " : JOB_DATE = " + this.getJobDate() + " : JOB_DESCRIPTION = " +
+                this.getJobDescription() + " : JOB_COMPLETION_DATE = " + this.getJobCompletionDate() + " : ENGINEER_NAME = " + this.getEngineerName() + " : JOB_ACTION_TAKEN = " +
+                this.getJobActionTaken() + " : JOB_ACTION_REASON = " + this.getJobActionReason() + " : TOTAL_PAYMENT_AMOUNT = " + this.getTotalPaymentAmount() + " : PAYMENT_DUE_DATE = " +
+                this.getPaymentDueDate() + " : JOB_STATUS = " + this.getJobStatus());
     }
 }

@@ -40,4 +40,9 @@ public class Roles  implements Serializable {
     public void setRoleType(String roleType) {
         this.roleType = roleType;
     }
+
+    @Override
+    public String toString() {
+        return ("ROLE_ID = " + this.getRoleId() + " : ROLE_TYPE = " + this.getRoleType());
+    }
 }

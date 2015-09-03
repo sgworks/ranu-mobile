@@ -1,17 +1,7 @@
 package com.sgworks.mobile.model;
 
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -20,7 +10,7 @@ public class MobileModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="MOBILE_ID", nullable = false)
+    @Column(name = "MOBILE_ID", nullable = false)
     private int mobileId;
 
     @Column(name = "MODEL_NAME")
@@ -41,21 +31,9 @@ public class MobileModel implements Serializable {
     @Column(name = "MMC")
     private String mmc;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "CUSTOMER_ID_FK")
-    private Customer customer;
-
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "JOB_ID_FK")
     private Job job;
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
 
     public Job getJob() {
         return job;
@@ -119,5 +97,13 @@ public class MobileModel implements Serializable {
 
     public void setMmc(String mmc) {
         this.mmc = mmc;
+    }
+
+    @Override
+    public String toString() {
+        return ("MOBILE_ID = " + this.getMobileId() + " : MODEL_NAME = " + this.getModelName() +
+                " : IMEI_NUMBER = " + this.getImeiNumber() + " : SIM = " +
+                this.getSim() + " : BATTERY = " + this.getBattery() + " : CHARGER = " + this.getCharger() +
+                " : MMC = " + this.getMmc());
     }
 }

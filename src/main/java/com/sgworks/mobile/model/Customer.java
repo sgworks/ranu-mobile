@@ -25,21 +25,6 @@ public class Customer implements Serializable {
     @Embedded
     private CustomerName customerName;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
-    private Set<Address> customerAddress;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
-    private Set<ContactDetails> customerContactDetails;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
-    private Set<Payment> payments;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
-    private Set<MobileModel> mobileModels;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
-    private Set<Job> jobs;
-
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "DATE_OF_BIRTH")
     private Date dateOfBirth;
@@ -47,21 +32,14 @@ public class Customer implements Serializable {
     @Column(name = "GENDER")
     private String gender;
 
-    public Set<Payment> getPayments() {
-        return payments;
-    }
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
+    private Set<Address> customerAddress;
 
-    public void setPayments(Set<Payment> payments) {
-        this.payments = payments;
-    }
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
+    private Set<ContactDetails> customerContactDetails;
 
-    public Set<MobileModel> getMobileModels() {
-        return mobileModels;
-    }
-
-    public void setMobileModels(Set<MobileModel> mobileModels) {
-        this.mobileModels = mobileModels;
-    }
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
+    private Set<Job> jobs;
 
     public Set<Job> getJobs() {
         return jobs;
@@ -117,5 +95,11 @@ public class Customer implements Serializable {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    @Override
+    public String toString() {
+        return ("CUSTOMER_ID = " + this.getCustomerId() + " : CustomerName {  = " + this.getCustomerName().toString() +
+                "} : DATE_OF_BIRTH = " + this.getDateOfBirth() + " : GENDER = " + this.getGender());
     }
 }

@@ -1,14 +1,7 @@
 package com.sgworks.mobile.model;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -35,7 +28,7 @@ public class Address implements Serializable {
     @Column(name = "ZIPCODE", length = 6)
     private String zipCode;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "CUSTOMER_ID_FK")
     private Customer customer;
 
@@ -93,5 +86,12 @@ public class Address implements Serializable {
 
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
+    }
+
+    @Override
+    public String toString() {
+        return ("ADDRESS_ID = " + this.getAddressId() + " : ADDRESS_LINE1 = " + this.getAddressLine1() +
+                " : ADDRESS_LINE2 = " + this.getAddressLine2() + " : CITY = " +
+                this.getCity() + " : STATE = " + this.getState() + " : ZIPCODE = " + this.getZipCode());
     }
 }

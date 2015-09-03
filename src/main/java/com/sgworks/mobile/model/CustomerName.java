@@ -39,4 +39,10 @@ public class CustomerName {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+    @Override
+    public String toString() {
+        return ("FIRST_NAME = " + this.getFirstName() + " : MIDDLE_NAME = " + this.getMiddleName() +
+                " : LAST_NAME = " + this.getLastName());
+    }
 }

@@ -1,14 +1,7 @@
 package com.sgworks.mobile.model;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -17,7 +10,7 @@ public class ContactDetails implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="CONTACT_ID", nullable = false)
+    @Column(name = "CONTACT_ID", nullable = false)
     private int contactId;
 
     @Column(name = "MOBILE_NUMBER")
@@ -32,7 +25,7 @@ public class ContactDetails implements Serializable {
     @Column(name = "ALTERNATE_EMAIL_ADDRESS")
     private String alternateEmailAddress;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "CUSTOMER_ID_FK")
     private Customer customer;
 
@@ -75,11 +68,19 @@ public class ContactDetails implements Serializable {
     public void setAlternateEmailAddress(String alternateEmailAddress) {
         this.alternateEmailAddress = alternateEmailAddress;
     }
+
     public int getContactId() {
         return contactId;
     }
 
     public void setContactId(int contactId) {
         this.contactId = contactId;
+    }
+
+    @Override
+    public String toString() {
+        return ("CONTACT_ID = " + this.getContactId() + " : MOBILE_NUMBER = " + this.getMobileNumber() +
+                " : ALTERNATE_MOBILE_NUMBER = " + this.getAlternateMobileNumber() + " : EMAIL_ADDRESS = " +
+                this.getEmailAddress() + " : ALTERNATE_EMAIL_ADDRESS = " + this.getAlternateEmailAddress());
     }
 }

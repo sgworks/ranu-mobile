@@ -57,4 +57,9 @@ public class AppUser extends org.springframework.security.core.userdetails.User 
     public void setRoles(Set<Roles> roles) {
         this.roles = roles;
     }
+
+    @Override
+    public String toString() {
+        return ("USER_ID = " + this.getUsername() + " : USER_PASSWORD = " + this.getPassword());
+    }
 }
