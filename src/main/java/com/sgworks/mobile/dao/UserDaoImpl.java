@@ -22,8 +22,6 @@ public class UserDaoImpl extends AbstractDao<String, AppUser> implements UserDao
 
     @Override
     public AppUser getUserDetails(String userId) {
-        Criteria criteria = createEntityCriteria();
-        criteria.add(Restrictions.eq("userId",userId));
-        return (AppUser)criteria.uniqueResult();
+        return getByKey(userId);
     }
 }
