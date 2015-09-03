@@ -3,10 +3,14 @@
 angular.module('mobileRepairApp')
     .config(function($stateProvider) {
         $stateProvider
-            .state('home', {
+            .state('dashboard', {
                 parent: 'site',
+                abstract : true
+            });
+        $stateProvider
+            .state('home', {
+                parent: 'dashboard',
                 url: '/home',
-                abstract : false,
                 views: {
                     'content@' : {
                         templateUrl : 'views/common/home.html'
@@ -15,18 +19,57 @@ angular.module('mobileRepairApp')
                 ncyBreadcrumb: {
                     label: 'Home'
                 }
-            })
-            .state('message', {
-                parent: 'site',
-                url: '/message',
-                abstract : false,
+            });
+        $stateProvider
+            .state('addJob', {
+                parent: 'dashboard',
+                url: '/addJob',
                 views: {
                     'content@' : {
-                        templateUrl : 'views/message/message.html'
+                        templateUrl : 'views/jobs/addJob.html'
                     }
                 },
                 ncyBreadcrumb: {
-                    label: 'Message'
+                    label: 'Add Job'
+                }
+            });
+        $stateProvider
+            .state('searchJob', {
+                parent: 'dashboard',
+                url: '/searchJob',
+                views: {
+                    'content@' : {
+                        templateUrl : 'views/jobs/searchJob.html'
+                    }
+                },
+                ncyBreadcrumb: {
+                    label: 'Search Job'
+                }
+            });
+        $stateProvider
+            .state('payments', {
+                parent: 'dashboard',
+                url: '/payments',
+                views: {
+                    'content@' : {
+                        templateUrl : 'views/payments/payments.html'
+                    }
+                },
+                ncyBreadcrumb: {
+                    label: 'Payment Tracker'
+                }
+            });
+        $stateProvider
+            .state('customer', {
+                parent: 'dashboard',
+                url: '/customer',
+                views: {
+                    'content@' : {
+                        templateUrl : 'views/customer/customer.html'
+                    }
+                },
+                ncyBreadcrumb: {
+                    label: 'Customer Maintenance'
                 }
             })
     });

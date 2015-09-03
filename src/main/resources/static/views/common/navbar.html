@@ -22,8 +22,11 @@
                     <a href="" class="btn btn-warning">Login</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li><a ui-sref="view1" ng-click="navCollapsed = !navCollapsed">Employee Management</a></li>
-                    <li><a ui-sref="view2" ng-click="navCollapsed = !navCollapsed">View Employees</a></li>
+                    <li><a ui-sref="home" ng-click="navCollapsed = !navCollapsed">{{ 'jyotimobile.home.menu' | translate }}</a></li>
+                    <li><a ui-sref="addJob" ng-click="navCollapsed = !navCollapsed">{{ 'jyotimobile.job.addjob.menu' | translate }}</a></li>
+                    <li><a ui-sref="searchJob" ng-click="navCollapsed = !navCollapsed">{{ 'jyotimobile.job.searchjob.menu' | translate }}</a></li>
+                    <li><a ui-sref="payments" ng-click="navCollapsed = !navCollapsed">{{ 'jyotimobile.payments.menu' | translate }}</a></li>
+                    <li><a ui-sref="customer" ng-click="navCollapsed = !navCollapsed">{{ 'jyotimobile.customer.menu' | translate }}</a></li>
                 </ul>
             </div>
 

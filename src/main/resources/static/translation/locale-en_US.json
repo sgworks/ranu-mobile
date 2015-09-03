@@ -6,6 +6,26 @@
       "copyRight" : "Copyright",
       "website" : "BackBench Innovations",
       "year" : " 2015"
-    }
+    },
+
+    "home" : {
+      "menu" : "HOME"
+    },
+
+    "job" : {
+      "addjob" : {
+        "menu" : "ADD JOB"
+      },
+      "searchjob" : {
+        "menu" : "SEARCH JOB"
+      }
+    },
+
+    "payments" : {
+      "menu" : "PAYMENT TRACKER"
+    },
+     "customer" : {
+       "menu" : "CUSTOMER MAINTENANCE"
+     }
   }
 }
