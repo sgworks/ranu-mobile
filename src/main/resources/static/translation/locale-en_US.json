@@ -14,7 +14,8 @@
 
     "job" : {
       "addjob" : {
-        "menu" : "ADD JOB"
+        "menu" : "ADD JOB",
+        "header" : "ADD JOB DETAILS"
       },
       "searchjob" : {
         "menu" : "SEARCH JOB"
@@ -22,10 +23,15 @@
     },
 
     "payments" : {
-      "menu" : "PAYMENT TRACKER"
+      "menu" : "PAYMENT TRACKER",
+      "header" : "ADD PAYMENT DETAILS"
     },
      "customer" : {
-       "menu" : "CUSTOMER MAINTENANCE"
-     }
+       "menu" : "CUSTOMER MAINTENANCE",
+       "header" : "ADD CUSTOMER DETAILS"
+     },
+    "mobile" : {
+      "header" : "ADD MOBILE DETAILS"
+    }
   }
 }

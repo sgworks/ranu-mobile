@@ -1,1 +1,59 @@
-<div>Add Job</div>
+<div ng-cloak>
+    <form>
+    <accordion close-others="oneAtATime">
+        <accordion-group is-open="status.openAddJob">
+            <accordion-heading>
+                {{ 'jyotimobile.job.addjob.header' | translate }}
+                <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.openAddJob, 'glyphicon-chevron-right': !status.openAddJob}">
+                </i>
+            </accordion-heading>
+                <div class="row">
+                    <div class="col-xs-6">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" class="col-xs-4">Email address:</label>
+                    <div class="col-xs-8">
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                    </div>
+                    </div>
+                    </div>
+                    <div class="col-xs-6">
+                    <div class="form-group">
+                        <label for="exampleInputPassword1" class="col-xs-4">Password:</label>
+                    <div class="col-xs-8">
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    </div>
+                        </div>
+                    </div>
+                </div>
+        </accordion-group>
+
+        <accordion-group is-open="status.openCustomer">
+            <accordion-heading>
+                {{ 'jyotimobile.customer.header' | translate }}
+                <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.openCustomer, 'glyphicon-chevron-right': !status.openCustomer}">
+                </i>
+            </accordion-heading>
+            This is just some content to illustrate fancy headings.
+        </accordion-group>
+
+        <accordion-group is-open="status.openMobile">
+            <accordion-heading>
+                {{ 'jyotimobile.mobile.header' | translate }}
+                <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.openMobile, 'glyphicon-chevron-right': !status.openMobile}">
+                </i>
+            </accordion-heading>
+            This is just some content to illustrate fancy headings.
+        </accordion-group>
+
+        <accordion-group is-open="status.openPayments">
+            <accordion-heading>
+                {{ 'jyotimobile.payments.header' | translate }}
+                <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.openPayments, 'glyphicon-chevron-right': !status.openPayments}">
+                </i>
+            </accordion-heading>
+            This is just some content to illustrate fancy headings.
+        </accordion-group>
+
+    </accordion>
+    </form>
+</div>

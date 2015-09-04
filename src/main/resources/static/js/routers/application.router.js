@@ -26,7 +26,8 @@ angular.module('mobileRepairApp')
                 url: '/addJob',
                 views: {
                     'content@' : {
-                        templateUrl : 'views/jobs/addJob.html'
+                        templateUrl : 'views/jobs/addJob.html',
+                        controller : 'AddJobController'
                     }
                 },
                 ncyBreadcrumb: {
