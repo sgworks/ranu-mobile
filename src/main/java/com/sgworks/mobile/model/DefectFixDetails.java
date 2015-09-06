@@ -1,7 +1,10 @@
 package com.sgworks.mobile.model;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+
 import javax.persistence.*;
 
+@JsonAutoDetect
 @Entity
 @Table(name = "DEFECT_FIX_DETAILS")
 public class DefectFixDetails {

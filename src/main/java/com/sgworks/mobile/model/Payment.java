@@ -1,11 +1,16 @@
 package com.sgworks.mobile.model;
 
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.sgworks.mobile.util.JsonDateSerializerUtil;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
+@JsonAutoDetect
 @Entity
 @Table(name = "PAYMENT")
 public class Payment implements Serializable {
@@ -61,6 +66,7 @@ public class Payment implements Serializable {
         this.amountPaid = amountPaid;
     }
 
+    @JsonSerialize(using=JsonDateSerializerUtil.class)
     public Date getPaymentDate() {
         return paymentDate;
     }

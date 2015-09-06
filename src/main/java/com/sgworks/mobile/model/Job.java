@@ -1,6 +1,9 @@
 package com.sgworks.mobile.model;
 
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.sgworks.mobile.util.JsonDateSerializerUtil;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import javax.persistence.*;
@@ -9,6 +12,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Set;
 
+@JsonAutoDetect
 @Entity
 @Table(name = "JOB")
 public class Job implements Serializable {
@@ -96,6 +100,7 @@ public class Job implements Serializable {
         this.jobType = jobType;
     }
 
+    @JsonSerialize(using=JsonDateSerializerUtil.class)
     public Date getJobCompletionDate() {
         return jobCompletionDate;
     }
@@ -120,6 +125,7 @@ public class Job implements Serializable {
         this.totalPaymentAmount = totalPaymentAmount;
     }
 
+    @JsonSerialize(using=JsonDateSerializerUtil.class)
     public Date getPaymentDueDate() {
         return paymentDueDate;
     }
@@ -128,6 +134,7 @@ public class Job implements Serializable {
         this.paymentDueDate = paymentDueDate;
     }
 
+    @JsonSerialize(using=JsonDateSerializerUtil.class)
     public Date getJobReceivedDate() {
         return jobReceivedDate;
     }
@@ -136,6 +143,7 @@ public class Job implements Serializable {
         this.jobReceivedDate = jobReceivedDate;
     }
 
+    @JsonSerialize(using=JsonDateSerializerUtil.class)
     public Date getJobEstimatedDate() {
         return jobEstimatedDate;
     }

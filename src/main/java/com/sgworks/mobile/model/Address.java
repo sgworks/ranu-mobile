@@ -1,9 +1,12 @@
 package com.sgworks.mobile.model;
 
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
+@JsonAutoDetect
 @Entity
 @Table(name = "ADDRESS")
 public class Address implements Serializable {
