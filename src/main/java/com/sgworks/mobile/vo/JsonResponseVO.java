@@ -1,11 +1,11 @@
-package com.sgworks.mobile.util;
+package com.sgworks.mobile.vo;
 
-public class JsonResponseUtil {
+public class JsonResponseVO {
 
     private String status = "";
     private String errorMessage = "";
 
-    public JsonResponseUtil (String status, String errorMessage) {
+    public JsonResponseVO(String status, String errorMessage) {
         this.status = status;
         this.errorMessage = errorMessage;
     }
