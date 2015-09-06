@@ -1,19 +1,16 @@
 package com.sgworks.mobile.model;
 
 
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.sgworks.mobile.util.JsonDateSerializerUtil;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
+@JsonAutoDetect
 @Entity
 @Table(name = "CUSTOMER")
 public class Customer implements Serializable {
@@ -25,18 +22,20 @@ public class Customer implements Serializable {
     @Column(name = "CUSTOMER_NAME")
     private String customerName;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "DATE_OF_BIRTH")
-    private Date dateOfBirth;
+    @Column(name = "MOBILE_NUMBER")
+    private String mobileNumber;
 
-    @Column(name = "GENDER")
-    private String gender;
+    @Column(name = "ALTERNATE_MOBILE_NUMBER")
+    private String alternateMobileNumber;
+
+    @Column(name = "EMAIL_ADDRESS")
+    private String emailAddress;
+
+    @Column(name = "ALTERNATE_EMAIL_ADDRESS")
+    private String alternateEmailAddress;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
     private Set<Address> customerAddress;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
-    private Set<ContactDetails> customerContactDetails;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
     private Set<Job> jobs;
@@ -73,33 +72,42 @@ public class Customer implements Serializable {
         this.customerAddress = customerAddress;
     }
 
-    public Set<ContactDetails> getCustomerContactDetails() {
-        return customerContactDetails;
+    public String getMobileNumber() {
+        return mobileNumber;
     }
 
-    public void setCustomerContactDetails(Set<ContactDetails> customerContactDetails) {
-        this.customerContactDetails = customerContactDetails;
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
     }
 
-    public Date getDateOfBirth() {
-        return dateOfBirth;
+    public String getAlternateMobileNumber() {
+        return alternateMobileNumber;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public void setAlternateMobileNumber(String alternateMobileNumber) {
+        this.alternateMobileNumber = alternateMobileNumber;
     }
 
-    public String getGender() {
-        return gender;
+    public String getEmailAddress() {
+        return emailAddress;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    public String getAlternateEmailAddress() {
+        return alternateEmailAddress;
+    }
+
+    public void setAlternateEmailAddress(String alternateEmailAddress) {
+        this.alternateEmailAddress = alternateEmailAddress;
     }
 
     @Override
     public String toString() {
         return ("CUSTOMER_ID = " + this.getCustomerId() + " : CUSTOMER_NAME = " + this.getCustomerName() +
-                " : DATE_OF_BIRTH = " + this.getDateOfBirth() + " : GENDER = " + this.getGender());
+                " : MOBILE_NUMBER = " + this.getMobileNumber() + " : ALTERNATE_MOBILE_NUMBER = " + this.getAlternateMobileNumber() +
+                " : EMAIL_ADDRESS = " + this.getEmailAddress() + " : ALTERNATE_EMAIL_ADDRESS = " + this.getAlternateEmailAddress());
     }
 }
