@@ -3,6 +3,7 @@ package com.sgworks.mobile.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
@@ -14,8 +15,11 @@ public class Payment implements Serializable {
     @Column(name = "PAYMENT_ID", nullable = false)
     private int paymentId;
 
-    @Column(name = "AMOUNT_PAID")
-    private double amountPaid;
+    @Column(name = "AMOUNT_TYPE")
+    private String amountType;
+
+    @Column(name = "AMOUNT_PAID", columnDefinition = "Decimal(10,2)")
+    private BigDecimal amountPaid;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "PAYMENT_DATE")
@@ -41,11 +45,19 @@ public class Payment implements Serializable {
         this.paymentId = paymentId;
     }
 
-    public double getAmountPaid() {
+    public String getAmountType() {
+        return amountType;
+    }
+
+    public void setAmountType(String amountType) {
+        this.amountType = amountType;
+    }
+
+    public BigDecimal getAmountPaid() {
         return amountPaid;
     }
 
-    public void setAmountPaid(double amountPaid) {
+    public void setAmountPaid(BigDecimal amountPaid) {
         this.amountPaid = amountPaid;
     }
 
@@ -59,7 +71,8 @@ public class Payment implements Serializable {
 
     @Override
     public String toString() {
-        return ("PAYMENT_ID = " + this.getPaymentId() + " : AMOUNT_PAID = " + this.getAmountPaid() +
+        return ("PAYMENT_ID = " + this.getPaymentId()  + " : AMOUNT_TYPE = " + this.getAmountType() +
+                " : AMOUNT_PAID = " + this.getAmountPaid() +
                 " : PAYMENT_DATE = " + this.getPaymentDate());
     }
 }

@@ -1,8 +1,11 @@
 package com.sgworks.mobile.model;
 
 
+import org.springframework.beans.factory.annotation.Qualifier;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Set;
 
@@ -18,12 +21,13 @@ public class Job implements Serializable {
     @Column(name = "JOB_TYPE")
     private String jobType;
 
-    @Column(name = "JOB_DESCRIPTION")
-    private String jobDescription;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "JOB_RECEIVED_DATE")
+    private Date jobReceivedDate;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "JOB_DATE")
-    private Date jobDate;
+    @Column(name = "JOB_ESTIMATED_DATE")
+    private Date jobEstimatedDate;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "JOB_COMPLETION_DATE")
@@ -32,14 +36,11 @@ public class Job implements Serializable {
     @Column(name = "ENGINEER_NAME")
     private String engineerName;
 
-    @Column(name = "JOB_ACTION_TAKEN")
-    private String jobActionTaken;
+    @Column(name = "TOTAL_ESTIMATED_AMOUNT", columnDefinition = "Decimal(10,2)")
+    private BigDecimal totalEstimatedAmount;
 
-    @Column(name = "JOB_ACTION_REASON")
-    private String jobActionReason;
-
-    @Column(name = "TOTAL_PAYMENT_AMOUNT")
-    private double totalPaymentAmount;
+    @Column(name = "TOTAL_PAYMENT_AMOUNT", columnDefinition = "Decimal(10,2)")
+    private BigDecimal totalPaymentAmount;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "PAYMENT_DUE_DATE")
@@ -95,22 +96,6 @@ public class Job implements Serializable {
         this.jobType = jobType;
     }
 
-    public String getJobDescription() {
-        return jobDescription;
-    }
-
-    public void setJobDescription(String jobDescription) {
-        this.jobDescription = jobDescription;
-    }
-
-    public Date getJobDate() {
-        return jobDate;
-    }
-
-    public void setJobDate(Date jobDate) {
-        this.jobDate = jobDate;
-    }
-
     public Date getJobCompletionDate() {
         return jobCompletionDate;
     }
@@ -127,28 +112,11 @@ public class Job implements Serializable {
         this.engineerName = engineerName;
     }
 
-    public String getJobActionTaken() {
-
-        return jobActionTaken;
-    }
-
-    public void setJobActionTaken(String jobActionTaken) {
-        this.jobActionTaken = jobActionTaken;
-    }
-
-    public String getJobActionReason() {
-        return jobActionReason;
-    }
-
-    public void setJobActionReason(String jobActionReason) {
-        this.jobActionReason = jobActionReason;
-    }
-
-    public double getTotalPaymentAmount() {
+    public BigDecimal getTotalPaymentAmount() {
         return totalPaymentAmount;
     }
 
-    public void setTotalPaymentAmount(double totalPaymentAmount) {
+    public void setTotalPaymentAmount(BigDecimal totalPaymentAmount) {
         this.totalPaymentAmount = totalPaymentAmount;
     }
 
@@ -160,11 +128,35 @@ public class Job implements Serializable {
         this.paymentDueDate = paymentDueDate;
     }
 
+    public Date getJobReceivedDate() {
+        return jobReceivedDate;
+    }
+
+    public void setJobReceivedDate(Date jobReceivedDate) {
+        this.jobReceivedDate = jobReceivedDate;
+    }
+
+    public Date getJobEstimatedDate() {
+        return jobEstimatedDate;
+    }
+
+    public void setJobEstimatedDate(Date jobEstimatedDate) {
+        this.jobEstimatedDate = jobEstimatedDate;
+    }
+
+    public BigDecimal getTotalEstimatedAmount() {
+        return totalEstimatedAmount;
+    }
+
+    public void setTotalEstimatedAmount(BigDecimal totalEstimatedAmount) {
+        this.totalEstimatedAmount = totalEstimatedAmount;
+    }
+
     @Override
     public String toString() {
-        return ("JOB_ID = " + this.getJobId() + " : JOB_TYPE = " + this.getJobType() + " : JOB_DATE = " + this.getJobDate() + " : JOB_DESCRIPTION = " +
-                this.getJobDescription() + " : JOB_COMPLETION_DATE = " + this.getJobCompletionDate() + " : ENGINEER_NAME = " + this.getEngineerName() + " : JOB_ACTION_TAKEN = " +
-                this.getJobActionTaken() + " : JOB_ACTION_REASON = " + this.getJobActionReason() + " : TOTAL_PAYMENT_AMOUNT = " + this.getTotalPaymentAmount() + " : PAYMENT_DUE_DATE = " +
+        return ("JOB_ID = " + this.getJobId() + " : JOB_TYPE = " + this.getJobType() + " : JOB_RECEIVED_DATE = " + this.getJobReceivedDate() + " : JOB_ESTIMATED_DATE = " +
+                this.getJobEstimatedDate() + " : JOB_COMPLETION_DATE = " + this.getJobCompletionDate() + " : ENGINEER_NAME = " + this.getEngineerName() + " : TOTAL_ESTIMATED_TIME = " +
+                this.getTotalEstimatedAmount() + " : TOTAL_PAYMENT_AMOUNT = " + this.getTotalPaymentAmount() + " : PAYMENT_DUE_DATE = " +
                 this.getPaymentDueDate() + " : JOB_STATUS = " + this.getJobStatus());
     }
 }

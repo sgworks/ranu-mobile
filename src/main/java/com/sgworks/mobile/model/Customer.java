@@ -22,8 +22,8 @@ public class Customer implements Serializable {
     @Column(name = "CUSTOMER_ID")
     private String customerId;
 
-    @Embedded
-    private CustomerName customerName;
+    @Column(name = "CUSTOMER_NAME")
+    private String customerName;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "DATE_OF_BIRTH")
@@ -57,11 +57,11 @@ public class Customer implements Serializable {
         this.customerId = customerId;
     }
 
-    public CustomerName getCustomerName() {
+    public String getCustomerName() {
         return customerName;
     }
 
-    public void setCustomerName(CustomerName customerName) {
+    public void setCustomerName(String customerName) {
         this.customerName = customerName;
     }
 
@@ -99,7 +99,7 @@ public class Customer implements Serializable {
 
     @Override
     public String toString() {
-        return ("CUSTOMER_ID = " + this.getCustomerId() + " : CustomerName {  = " + this.getCustomerName().toString() +
-                "} : DATE_OF_BIRTH = " + this.getDateOfBirth() + " : GENDER = " + this.getGender());
+        return ("CUSTOMER_ID = " + this.getCustomerId() + " : CUSTOMER_NAME = " + this.getCustomerName() +
+                " : DATE_OF_BIRTH = " + this.getDateOfBirth() + " : GENDER = " + this.getGender());
     }
 }
