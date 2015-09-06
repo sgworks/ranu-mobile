@@ -4,7 +4,6 @@ package com.sgworks.mobile.model;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.sgworks.mobile.util.JsonDateSerializerUtil;
-import org.springframework.beans.factory.annotation.Qualifier;
 
 import javax.persistence.*;
 import java.io.Serializable;
