@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/api/account")
+@RequestMapping(value = RanuMobileRestURIConstants.userRootMappingURI)
 public class UserController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 
-    }
+}
 
