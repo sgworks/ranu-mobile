@@ -5,6 +5,8 @@ public class JsonResponseVO {
     private String status = "";
     private String errorMessage = "";
 
+    public JsonResponseVO() { }
+
     public JsonResponseVO(String status, String errorMessage) {
         this.status = status;
         this.errorMessage = errorMessage;
