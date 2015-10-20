@@ -1,59 +1,39 @@
-<div ng-cloak>
-    <form>
-    <accordion close-others="oneAtATime">
-        <accordion-group is-open="status.openAddJob">
-            <accordion-heading>
-                {{ 'jyotimobile.job.addjob.header' | translate }}
-                <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.openAddJob, 'glyphicon-chevron-right': !status.openAddJob}">
-                </i>
-            </accordion-heading>
-                <div class="row">
-                    <div class="col-xs-6">
-                    <div class="form-group">
-                        <label for="exampleInputEmail1" class="col-xs-4">Email address:</label>
-                    <div class="col-xs-8">
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-                    </div>
-                    </div>
-                    </div>
-                    <div class="col-xs-6">
-                    <div class="form-group">
-                        <label for="exampleInputPassword1" class="col-xs-4">Password:</label>
-                    <div class="col-xs-8">
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                    </div>
-                        </div>
-                    </div>
-                </div>
-        </accordion-group>
+<div ng-cloak class="panel-group">
+    <div class="row form-group form-group-sm">
+        <accordion close-others="oneAtATime">
 
         <accordion-group is-open="status.openCustomer">
-            <accordion-heading>
-                {{ 'jyotimobile.customer.header' | translate }}
-                <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.openCustomer, 'glyphicon-chevron-right': !status.openCustomer}">
-                </i>
+            <accordion-heading >
+                <div ui-sref="addJob.customer">
+                    <strong>{{ 'jyotimobile.customer.header' | translate }}</strong>
+                    <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.openCustomer, 'glyphicon-chevron-right': !status.openCustomer}">
+                    </i>
+                </div>
             </accordion-heading>
-            This is just some content to illustrate fancy headings.
+               <div ui-view="customer"></div>
+        </accordion-group>
+
+        <accordion-group is-open="status.openAddJob">
+            <accordion-heading>
+                <div ui-sref="addJob.jobDetails">
+                <strong>{{ 'jyotimobile.job.addjob.header' | translate }}</strong>
+                <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.openAddJob, 'glyphicon-chevron-right': !status.openAddJob}">
+                </i>
+                    </div>
+            </accordion-heading>
+            <div ui-view="jobDetails"></div>
         </accordion-group>
 
         <accordion-group is-open="status.openMobile">
             <accordion-heading>
-                {{ 'jyotimobile.mobile.header' | translate }}
+                <div ui-sref="addJob.mobileDetails">
+                <strong>{{ 'jyotimobile.mobile.header' | translate }}</strong>
                 <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.openMobile, 'glyphicon-chevron-right': !status.openMobile}">
                 </i>
+                    </div>
             </accordion-heading>
-            This is just some content to illustrate fancy headings.
+            <div ui-view="mobileDetails"></div>
         </accordion-group>
-
-        <accordion-group is-open="status.openPayments">
-            <accordion-heading>
-                {{ 'jyotimobile.payments.header' | translate }}
-                <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.openPayments, 'glyphicon-chevron-right': !status.openPayments}">
-                </i>
-            </accordion-heading>
-            This is just some content to illustrate fancy headings.
-        </accordion-group>
-
     </accordion>
-    </form>
+    </div>
 </div>

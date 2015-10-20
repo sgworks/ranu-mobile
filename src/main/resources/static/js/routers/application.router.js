@@ -28,6 +28,9 @@ angular.module('mobileRepairApp')
                     'content@' : {
                         templateUrl : 'views/jobs/addJob.html',
                         controller : 'AddJobController'
+                    },
+                    'customer@' : {
+                        templateUrl : 'views/customer/customer.html'
                     }
                 },
                 ncyBreadcrumb: {
@@ -61,16 +64,42 @@ angular.module('mobileRepairApp')
                 }
             });
         $stateProvider
-            .state('customer', {
-                parent: 'dashboard',
+            .state('addJob.customer', {
+                parent: 'addJob',
                 url: '/customer',
                 views: {
-                    'content@' : {
+                    'customer@addJob' : {
                         templateUrl : 'views/customer/customer.html'
                     }
                 },
                 ncyBreadcrumb: {
                     label: 'Customer Maintenance'
                 }
-            })
+            });
+        $stateProvider
+            .state('addJob.jobDetails', {
+                parent: 'addJob',
+                url: '/jobDetails',
+                views: {
+                    'jobDetails@addJob' : {
+                        templateUrl : 'views/jobs/jobDetails.html'
+                    }
+                },
+                ncyBreadcrumb: {
+                    label: 'Job Details'
+                }
+            });
+        $stateProvider
+            .state('addJob.mobileDetails', {
+                parent: 'addJob',
+                url: '/jobDetails',
+                views: {
+                    'mobileDetails@addJob' : {
+                        templateUrl : 'views/mobile/mobileDetails.html'
+                    }
+                },
+                ncyBreadcrumb: {
+                    label: 'Mobile Details'
+                }
+            });
     });

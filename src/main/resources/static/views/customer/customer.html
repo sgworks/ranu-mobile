@@ -1,1 +1,53 @@
-<div>Customer</div>
+<div ng-cloak>
+    <form name="jobSheetForms.customerForm" id="customerForm"
+          class="form-horizontal"
+          autocomplete="off" role="form"
+          novalidate>
+<div class="col-md-14 col-md-offset-2">
+    <div class="row form-group" ng-class="{ 'has-error' : jobSheetForms.customerForm.mobileNumberSearch.$invalid && !jobSheetForms.customerForm.mobileNumberSearch.$pristine }">
+               <div class="col-md-4">
+                <label for="checkCustomer">{{ 'jyotimobile.customer.form.mobile' | translate }}</label>
+               </div>
+                <div class="col-md-8">
+                    <input type="email" name="mobileNumberSearch" ng-model="job.mobileNumberSearch"
+                           class="form-control" id="checkCustomer" placeholder="{{ 'jyotimobile.customer.form.mobileplaceholder' | translate }}"
+                           ng-pattern="/^[0-9]*$/" ng-maxlength="10" maxlength="10" autofocus>
+                    </div>
+                    <div role="alert" class="col-md-4">
+                        <p ng-show="jobSheetForms.customerForm.mobileNumberSearch.$error.pattern"
+                           class="help-block" id="mobileNumberSearchErrorMsg" name="mobileNumberSearchErrorMsg">Only numeric values accepted</p>
+                    </div>
+                </div>
+    <div ng-show="showCustomerForm">
+        <div class="row form-group" ng-class="{ 'has-error' : jobSheetForms.customerForm.customerName.$invalid && !jobSheetForms.customerForm.customerName.$pristine }">
+            <div class="col-md-4">
+                    <label for="customerName">{{ 'jyotimobile.customer.form.name' | translate }}</label>
+                </div>
+                <div class="col-md-8">
+                    <input type="email" name="customerName" ng-model="job.customerName"
+                           class="form-control" id="customerName" placeholder="{{ 'jyotimobile.common.placeholder' | translate }}"
+                           ng-pattern="/^[A-Za-z]*$/" >
+                    </div>
+                    <div role="alert" class="col-md-4">
+                        <p ng-show="jobSheetForms.customerForm.customerName.$error.pattern"
+                           class="help-block" id="customerNameErrorMsg" name="customerNameErrorMsg">Only alphabetic values accepted</p>
+                    </div>
+                </div>
+        <div class="row form-group" ng-class="{ 'has-error' : jobSheetForms.customerForm.customerEmail.$invalid && !jobSheetForms.customerForm.customerEmail.$pristine }">
+                <div class="col-md-4">
+                    <label for="customerEmail">{{ 'jyotimobile.customer.form.email' | translate }}</label>
+                </div>
+                <div class="col-md-8">
+                    <input type="email" name="customerEmail" ng-model="job.customerEmail"
+                           class="form-control" id="customerEmail" placeholder="{{ 'jyotimobile.common.placeholder' | translate }}"
+                           ng-pattern="/^[A-Za-z]*$/" >
+                    </div>
+                    <div role="alert" class="col-md-4">
+                        <p ng-show="jobSheetForms.customerForm.customerEmail.$error.pattern"
+                           class="help-block" id="customerEmailErrorMsg" name="customerEmailErrorMsg">Only numeric values accepted</p>
+                    </div>
+                </div>
+    </div>
+        </div>
+        </form>
+</div>
