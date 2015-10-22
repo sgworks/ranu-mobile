@@ -69,7 +69,8 @@ angular.module('mobileRepairApp')
                 url: '/customer',
                 views: {
                     'customer@addJob' : {
-                        templateUrl : 'views/customer/customer.html'
+                        templateUrl : 'views/customer/customer.html',
+                        controller : 'CustomerController'
                     }
                 },
                 ncyBreadcrumb: {
